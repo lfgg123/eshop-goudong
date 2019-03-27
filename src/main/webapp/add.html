@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TR height=28>
+    <TD background=images/title_bg1.jpg>&nbsp;&nbsp;当前位置：添加数据</TD></TR>
+  <TR>
+    <TD bgColor=#b1ceef height=1></TD>
+  </TR>
+  <TR height=20>
+    <TD background=images/shadow_bg.jpg></TD>
+  </TR>
+</TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+    <TR>
+        <TD>
+            <TABLE height=100 cellSpacing=5 cellPadding=5 width="100%" border=1>
+                <form name="form1" action="add_action.html" method="post" enctype="multipart/form-data">
+                    <TR>
+                        <TD><font style="color:#FF0000">后台没有展示数据列表，所以需要你添加一条数据以后就在IOS上请求一次接口调试</font></TD>
+                    </TR>
+                    <TR>
+                        <TD><font style="color:#FF0000">注意：①以下资料全是必填，不管是否能够用到都必须填上，这里的填写是对应APP中的产品数据，灵活运用。②一张图片别超过1M</font></TD>
+                    </TR>
+                    <TR>
+                        <TD>分类：<input type="text" name="wu_status"> 注意：这个只能填写数字，比如第一类产品都填写1，第二类产品都填写2就行了，用于接口文档中的分类列表</TD>
+                    </TR>
+                    <TR>
+                        <TD>标题：<input type="text" name="wu_title"></TD>
+                    </TR>
+                    <TR>
+                        <TD>副标题：<input type="text" name="wu_title2"></TD>
+                    </TR>
+                    <TR>
+                        <TD>属性/其他：<input type="text" name="wu_attr"> 注意：你随便填，填完对应到APP中合适的位置</TD>
+                    </TR>
+                    <TR>
+                        <TD>价格：<input type="text" name="wu_price"></TD>
+                    </TR>
+                    <TR>
+                        <TD>地址：<input type="text" name="wu_address"></TD>
+                    </TR>
+                    <TR>
+                        <TD>购买数/浏览数：<input type="text" name="wu_num"> 注意：只能填写数字</TD>
+                    </TR>
+                    <TR>
+                        <TD>列表页缩略图：<input type="file" name="wu_pic"></TD>
+                    </TR>
+                    <TR>
+                        <TD>详情图（只能传3张）：<br />
+                            <input type="file" name="pic[]" style="margin-bottom:5px"><br />
+                            <input type="file" name="pic[]" style="margin-bottom:5px"><br />
+                            <input type="file" name="pic[]">
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD><input type="submit" value="添加"></TD>
+                    </TR>
+                </form>
+            </TABLE>
+        </TD>
+    </TR>
+</TABLE>
+</BODY>
+</HTML>
