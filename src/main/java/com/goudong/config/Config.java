@@ -4,11 +4,15 @@ import com.goudong.controller.HelloController;
 import com.goudong.controller.UserController;
 import com.goudong.model._MappingKit;
 import com.jfinal.config.*;
+import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
+import com.jfinal.render.ViewType;
 import com.jfinal.server.undertow.UndertowServer;
 import com.jfinal.template.Engine;
+
+import java.io.File;
 
 /**
  * Created by CTL on 2019/3/27.
@@ -18,6 +22,8 @@ public class Config extends JFinalConfig {
     public void configConstant(Constants constants) {
         PropKit.use("jdbc_config.txt");
         constants.setDevMode(PropKit.getBoolean("devMode", false));
+        constants.setViewType(ViewType.FREE_MARKER);
+        constants.setBaseUploadPath(File.separator + "pics");
     }
 
     @Override
@@ -59,7 +65,7 @@ public class Config extends JFinalConfig {
 
     @Override
     public void configHandler(Handlers handlers) {
-
+        handlers.add(new ContextPathHandler("contextPath"));
     }
 
     public static void main(String[] args) {

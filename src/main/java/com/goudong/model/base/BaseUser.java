@@ -9,13 +9,13 @@ import com.jfinal.plugin.activerecord.IBean;
 @SuppressWarnings({"serial", "unchecked"})
 public abstract class BaseUser<M extends BaseUser<M>> extends Model<M> implements IBean {
 
-	public M setId(java.lang.Integer id) {
+	public M setId(java.lang.Long id) {
 		set("id", id);
 		return (M)this;
 	}
 	
-	public java.lang.Integer getId() {
-		return getInt("id");
+	public java.lang.Long getId() {
+		return getLong("id");
 	}
 
 	public M setAccount(java.lang.String account) {

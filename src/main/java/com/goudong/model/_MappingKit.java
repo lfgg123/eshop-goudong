@@ -16,6 +16,11 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 public class _MappingKit {
 	
 	public static void mapping(ActiveRecordPlugin arp) {
+		arp.addMapping("shop_cart", "id", Cart.class);
+		arp.addMapping("shop_cart_item", "id", CartItem.class);
+		arp.addMapping("shop_goods", "id", Goods.class);
+		arp.addMapping("shop_letus", "id", Letus.class);
+		arp.addMapping("shop_message", "id", Message.class);
 		arp.addMapping("shop_user", "id", User.class);
 	}
 }

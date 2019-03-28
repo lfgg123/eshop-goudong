@@ -18,7 +18,7 @@
     <TR>
         <TD>
             <TABLE height=100 cellSpacing=5 cellPadding=5 width="100%" border=1>
-                <form name="form1" action="add_action.html" method="post" enctype="multipart/form-data">
+                <form name="form1" action="/saveGoods" method="post" enctype="multipart/form-data">
                     <TR>
                         <TD><font style="color:#FF0000">后台没有展示数据列表，所以需要你添加一条数据以后就在IOS上请求一次接口调试</font></TD>
                     </TR>
@@ -26,34 +26,34 @@
                         <TD><font style="color:#FF0000">注意：①以下资料全是必填，不管是否能够用到都必须填上，这里的填写是对应APP中的产品数据，灵活运用。②一张图片别超过1M</font></TD>
                     </TR>
                     <TR>
-                        <TD>分类：<input type="text" name="wu_status"> 注意：这个只能填写数字，比如第一类产品都填写1，第二类产品都填写2就行了，用于接口文档中的分类列表</TD>
+                        <TD>分类：<input type="text" name="kind"> 注意：这个只能填写数字，比如第一类产品都填写1，第二类产品都填写2就行了，用于接口文档中的分类列表</TD>
                     </TR>
                     <TR>
-                        <TD>标题：<input type="text" name="wu_title"></TD>
+                        <TD>标题：<input type="text" name="title"></TD>
                     </TR>
                     <TR>
-                        <TD>副标题：<input type="text" name="wu_title2"></TD>
+                        <TD>副标题：<input type="text" name="second_title"></TD>
                     </TR>
                     <TR>
-                        <TD>属性/其他：<input type="text" name="wu_attr"> 注意：你随便填，填完对应到APP中合适的位置</TD>
+                        <TD>属性/其他：<input type="text" name="attr"> 注意：你随便填，填完对应到APP中合适的位置</TD>
                     </TR>
                     <TR>
-                        <TD>价格：<input type="text" name="wu_price"></TD>
+                        <TD>价格：<input type="text" name="price"></TD>
                     </TR>
                     <TR>
-                        <TD>地址：<input type="text" name="wu_address"></TD>
+                        <TD>地址：<input type="text" name="address"></TD>
                     </TR>
                     <TR>
-                        <TD>购买数/浏览数：<input type="text" name="wu_num"> 注意：只能填写数字</TD>
+                        <TD>购买数/浏览数：<input type="text" name="num"> 注意：只能填写数字</TD>
                     </TR>
                     <TR>
-                        <TD>列表页缩略图：<input type="file" name="wu_pic"></TD>
+                        <TD>列表页缩略图：<input type="file" name="samllPic"></TD>
                     </TR>
                     <TR>
                         <TD>详情图（只能传3张）：<br />
-                            <input type="file" name="pic[]" style="margin-bottom:5px"><br />
-                            <input type="file" name="pic[]" style="margin-bottom:5px"><br />
-                            <input type="file" name="pic[]">
+                            <input type="file" name="pic1" style="margin-bottom:5px"><br />
+                            <input type="file" name="pic2" style="margin-bottom:5px"><br />
+                            <input type="file" name="pic3">
                         </TD>
                     </TR>
                     <TR>
