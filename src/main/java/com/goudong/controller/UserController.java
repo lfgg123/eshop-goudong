@@ -1,7 +1,12 @@
 package com.goudong.controller;
 
 import com.goudong.model.Goods;
+import com.goudong.model.Letus;
+import com.goudong.model.Message;
+import com.goudong.model.User;
 import com.goudong.service.GoodsService;
+import com.goudong.service.LetusService;
+import com.goudong.service.MessageService;
 import com.goudong.service.UserService;
 import com.jfinal.core.Controller;
 import com.jfinal.upload.UploadFile;
@@ -18,6 +23,8 @@ public class UserController extends Controller {
 
     private final static UserService userService = new UserService();
     private final static GoodsService goodsService = new GoodsService();
+    private final static MessageService messageService = new MessageService();
+    private final static LetusService letusService = new LetusService();
 
     /**
      * 登录
@@ -25,7 +32,9 @@ public class UserController extends Controller {
     public void login() {
         String username = getPara("username");
         String password = getPara("password");
-        renderJson(userService.getUser(username, password));
+        User user = userService.getUser(username, password);
+        setSessionAttr("user_id", user.getId());
+        renderJson(user);
     }
 
     /**
@@ -119,6 +128,9 @@ public class UserController extends Controller {
         renderFreeMarker("/updatepic.html");
     }
 
+    /**
+     * 更新详情图片
+     */
     public void updatePics() {
         String filepath = File.separator + UUID.randomUUID().toString() + File.separator;
         UploadFile pic1 = getFile("pic1", filepath, 100000000);
@@ -134,6 +146,43 @@ public class UserController extends Controller {
             goods.setPic3(pic3.getUploadPath() + pic3.getFileName());
         goods.setId(BigInteger.valueOf(id));
         goods.update();
+        render("/main.html");
+    }
+
+    public void saveMessage() {
+        Message message = getModel(Message.class, "", true);
+        message.save();
+        render("/main.html");
+    }
+
+    public void messageList() {
+        setAttr("list", messageService.getAll());
+        renderFreeMarker("/message_list.html");
+    }
+
+    public void deleteMessage() {
+        Long id = getParaToLong("id");
+        Message message = new Message();
+        message.setId(BigInteger.valueOf(id));
+        message.delete();
+        render("/main.html");
+    }
+
+    public void letusPage(){
+        List<Letus> list = letusService.getAll();
+        if (null != list && list.size() > 0) {
+            setAttr("letus",list.get(0));
+        }
+        renderFreeMarker("/letus.html");
+    }
+
+    public void saveLetus() {
+        List<Letus> list = letusService.getAll();
+        if (null != list && list.size() > 0) {
+            list.forEach(letus -> letus.delete());
+        }
+        Letus letus = getModel(Letus.class, "", true);
+        letus.save();
         render("/main.html");
     }
 

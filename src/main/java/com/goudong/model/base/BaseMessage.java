@@ -18,15 +18,6 @@ public abstract class BaseMessage<M extends BaseMessage<M>> extends Model<M> imp
 		return get("id");
 	}
 
-	public M setUserId(java.lang.Long userId) {
-		set("user_id", userId);
-		return (M)this;
-	}
-	
-	public java.lang.Long getUserId() {
-		return getLong("user_id");
-	}
-
 	public M setMessageContent(java.lang.String messageContent) {
 		set("message_content", messageContent);
 		return (M)this;

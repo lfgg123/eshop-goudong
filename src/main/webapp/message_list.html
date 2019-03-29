@@ -19,12 +19,14 @@
         <TD>内容</TD>
         <TD>操作</TD>
     </TR>
+    <#list list as message>
             <TR>
-            <TD>我们的APP正式于2019年3月份上线了，希望能给大家带来便利❤️</TD>
+            <TD>${message.message_content!''}</TD>
             <TD>
-                <a href="message_del.html?message_id=5">删除</a>
+                <a href="/deleteMessage?id=${message.id}">删除</a>
             </TD>
         </TR>
+    </#list>
     </TABLE>
 </BODY>
 </HTML>
