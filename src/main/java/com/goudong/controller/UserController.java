@@ -149,17 +149,26 @@ public class UserController extends Controller {
         render("/main.html");
     }
 
+    /**
+     * 保存消息
+     */
     public void saveMessage() {
         Message message = getModel(Message.class, "", true);
         message.save();
         render("/main.html");
     }
 
+    /**
+     * 消息列表
+     */
     public void messageList() {
         setAttr("list", messageService.getAll());
         renderFreeMarker("/message_list.html");
     }
 
+    /**
+     * 删除消息
+     */
     public void deleteMessage() {
         Long id = getParaToLong("id");
         Message message = new Message();
@@ -168,6 +177,9 @@ public class UserController extends Controller {
         render("/main.html");
     }
 
+    /**
+     * 关于我们页面
+     */
     public void letusPage(){
         List<Letus> list = letusService.getAll();
         if (null != list && list.size() > 0) {
@@ -176,6 +188,9 @@ public class UserController extends Controller {
         renderFreeMarker("/letus.html");
     }
 
+    /**
+     * 保存关于我们
+     */
     public void saveLetus() {
         List<Letus> list = letusService.getAll();
         if (null != list && list.size() > 0) {
