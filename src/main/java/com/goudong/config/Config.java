@@ -24,6 +24,7 @@ public class Config extends JFinalConfig {
         constants.setDevMode(PropKit.getBoolean("devMode", false));
         constants.setViewType(ViewType.FREE_MARKER);
         constants.setBaseUploadPath(File.separator + "pics");
+        constants.setBaseDownloadPath(File.separator + "pics");
     }
 
     @Override

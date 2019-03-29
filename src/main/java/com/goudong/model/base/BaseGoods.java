@@ -117,6 +117,24 @@ public abstract class BaseGoods<M extends BaseGoods<M>> extends Model<M> impleme
 		return getStr("pic3");
 	}
 
+	public M setBanner(java.lang.String banner) {
+		set("banner", banner);
+		return (M)this;
+	}
+	
+	public java.lang.String getBanner() {
+		return getStr("banner");
+	}
+
+	public M setContent(java.lang.String content) {
+		set("content", content);
+		return (M)this;
+	}
+	
+	public java.lang.String getContent() {
+		return getStr("content");
+	}
+
 	public M setCreateAt(java.util.Date createAt) {
 		set("create_at", createAt);
 		return (M)this;
