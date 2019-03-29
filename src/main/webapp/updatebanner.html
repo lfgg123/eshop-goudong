@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TR height=28>
+    <TD background=images/title_bg1.jpg>&nbsp;&nbsp;当前位置：修改banner图像</TD></TR>
+  <TR>
+    <TD bgColor=#b1ceef height=1></TD>
+  </TR>
+  <TR height=20>
+    <TD background=images/shadow_bg.jpg></TD>
+  </TR>
+</TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+    <TR>
+        <TD>
+            <form name="form1" action="/updateBanner" method="post" enctype="multipart/form-data">
+            <TABLE height=100 cellSpacing=5 cellPadding=5 width="100%" border=1>
+                    <TR>
+                        <TD>
+                                                        <input type="file" name="banner"><br /><br />
+                            <textarea name="content" style="width:600px;height:150px">${goods.content}</textarea>
+                        </TD>
+                    </TR>
+
+                <TR>
+                    <TD colspan=2>
+                        <input type="hidden" name="id" value="${goods.id}">
+                        <input type="submit" value="上传">
+                    </TD>
+                </TR>
+            </TABLE>
+            </form>
+        </TD>
+    </TR>
+</TABLE>
+</BODY>
+</HTML>

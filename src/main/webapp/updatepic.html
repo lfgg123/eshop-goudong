@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TR height=28>
+    <TD background=images/title_bg1.jpg>&nbsp;&nbsp;当前位置：修改图像</TD></TR>
+  <TR>
+    <TD bgColor=#b1ceef height=1></TD>
+  </TR>
+  <TR height=20>
+    <TD background=images/shadow_bg.jpg></TD>
+  </TR>
+</TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+    <TR>
+        <TD>
+            <TABLE height=100 cellSpacing=5 cellPadding=5 width="100%" border=1>
+                                <TR>
+                    <TD>
+                        <img src="/showImg?path=${goods.pic1!''}" style="width:50px;height:50px">
+                    </TD>
+                </TR>
+                                <TR>
+                    <TD>
+                        <img src="/showImg?path=${goods.pic2!''}" style="width:50px;height:50px">
+                    </TD>
+                </TR>
+                                <TR>
+                    <TD>
+                        <img src="/showImg?path=${goods.pic3!''}" style="width:50px;height:50px">
+                    </TD>
+                </TR>
+                
+                <TR>
+                    <TD colspan=2>
+                        <form name="form1" action="/updatePics" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="${goods.id}">
+                            <input type="file" name="pic1" style="margin-bottom:5px"><br />
+                            <input type="file" name="pic2" style="margin-bottom:5px"><br />
+                            <input type="file" name="pic3">
+                            <input type="submit" value="上传">
+                        </form>
+                    </TD>
+                </TR>
+            </TABLE>
+        </TD>
+    </TR>
+</TABLE>
+</BODY>
+</HTML>
