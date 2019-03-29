@@ -18,6 +18,15 @@ public abstract class BaseCartItem<M extends BaseCartItem<M>> extends Model<M> i
 		return get("id");
 	}
 
+	public M setNum(java.lang.Integer num) {
+		set("num", num);
+		return (M)this;
+	}
+
+	public java.lang.Integer getNum() {
+		return getInt("num");
+	}
+
 	public M setCartId(java.lang.Long cartId) {
 		set("cart_id", cartId);
 		return (M)this;
@@ -27,13 +36,13 @@ public abstract class BaseCartItem<M extends BaseCartItem<M>> extends Model<M> i
 		return getLong("cart_id");
 	}
 
-	public M setGoodId(java.lang.Long goodId) {
-		set("good_id", goodId);
+	public M setGoodsId(java.lang.Long goodsId) {
+		set("goods_id", goodsId);
 		return (M)this;
 	}
 	
-	public java.lang.Long getGoodId() {
-		return getLong("good_id");
+	public java.lang.Long getGoodsId() {
+		return getLong("goods_id");
 	}
 
 	public M setCreateAt(java.util.Date createAt) {
