@@ -24,7 +24,7 @@
 # 启动入口类，该脚本文件用于别的项目时要改这里
 MAIN_CLASS=com.goudong.config.Config
 
-if [[ "$MAIN_CLASS" == "com.demo.config" ]]; then
+if [[ "$MAIN_CLASS" == "com.demo.Config" ]]; then
     echo "请先修改 MAIN_CLASS 的值为你自己项目启动Class，然后再执行此脚本。"
 	exit 0
 fi
