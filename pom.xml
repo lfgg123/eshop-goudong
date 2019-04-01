@@ -19,6 +19,8 @@
         <druid.version>1.1.5</druid.version>
         <mysql-connector.version>5.1.42</mysql-connector.version>
         <freemarker.version>2.3.28</freemarker.version>
+        <cors-filter.version>2.5</cors-filter.version>
+        <cos.version>26Dec2008</cos.version>
     </properties>
 
     <build>
@@ -147,7 +149,12 @@
         <dependency>
             <groupId>com.jfinal</groupId>
             <artifactId>cos</artifactId>
-            <version>26Dec2008</version>
+            <version>${cos.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>cors-filter</artifactId>
+            <version>${cors-filter.version}</version>
         </dependency>
     </dependencies>
 </project>

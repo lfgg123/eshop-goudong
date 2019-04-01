@@ -1,7 +1,9 @@
 package com.goudong.config;
 
+import com.goudong.controller.ApiController;
 import com.goudong.controller.HelloController;
 import com.goudong.controller.UserController;
+import com.goudong.filter.CrossInterceptor;
 import com.goudong.model._MappingKit;
 import com.jfinal.config.*;
 import com.jfinal.ext.handler.ContextPathHandler;
@@ -31,6 +33,7 @@ public class Config extends JFinalConfig {
     public void configRoute(Routes routes) {
         routes.add("/hello", HelloController.class);
         routes.add("/", UserController.class);
+        routes.add("/api", ApiController.class);
     }
 
     @Override
@@ -61,7 +64,7 @@ public class Config extends JFinalConfig {
 
     @Override
     public void configInterceptor(Interceptors interceptors) {
-
+        interceptors.add(new CrossInterceptor());
     }
 
     @Override

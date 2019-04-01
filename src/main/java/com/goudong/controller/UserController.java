@@ -1,11 +1,11 @@
 package com.goudong.controller;
 
-import com.goudong.dto.CartDTO;
-import com.goudong.model.*;
+import com.goudong.model.Goods;
+import com.goudong.model.Letus;
+import com.goudong.model.Message;
 import com.goudong.service.GoodsService;
 import com.goudong.service.LetusService;
 import com.goudong.service.MessageService;
-import com.goudong.service.UserService;
 import com.jfinal.core.Controller;
 import com.jfinal.upload.UploadFile;
 
@@ -19,21 +19,9 @@ import java.util.UUID;
  */
 public class UserController extends Controller {
 
-    private final static UserService userService = new UserService();
     private final static GoodsService goodsService = new GoodsService();
     private final static MessageService messageService = new MessageService();
     private final static LetusService letusService = new LetusService();
-
-    /**
-     * 登录
-     */
-    public void login() {
-        String username = getPara("username");
-        String password = getPara("password");
-        User user = userService.getUser(username, password);
-        setSessionAttr("user_id", user.getId());
-        renderJson(user);
-    }
 
     /**
      * 保存货品
@@ -178,10 +166,10 @@ public class UserController extends Controller {
     /**
      * 关于我们页面
      */
-    public void letusPage(){
+    public void letusPage() {
         List<Letus> list = letusService.getAll();
         if (null != list && list.size() > 0) {
-            setAttr("letus",list.get(0));
+            setAttr("letus", list.get(0));
         }
         renderFreeMarker("/letus.html");
     }
@@ -207,47 +195,6 @@ public class UserController extends Controller {
         if (null == path || path.length() == 0)
             return;
         renderFile(new File(path));
-    }
-
-    public void goods4App(){
-        renderJson(goodsService.getAll());
-    }
-
-    public void saveCart(){
-        Long uid  = getParaToLong("user_id");
-        if(null == uid){
-            return;
-        }
-        Cart cart = new Cart();
-        cart = cart.findFirst("select * from shop_cart where user_id = ?",uid);
-        if(null == cart){
-            cart.setUserId(BigInteger.valueOf(uid));
-            cart.save();
-        }
-        Long goodsId = getParaToLong("goods_id");
-        CartItem cartItem = new CartItem();
-        cartItem.setGoodsId(goodsId);
-        cartItem.setCartId((long)cart.getId());
-        cartItem.setNum(getParaToInt("num"));
-        cartItem.save();
-        renderText("SUCCESS");
-    }
-
-    public void getCart(){
-        Long uid  = getParaToLong("user_id");
-        if(null == uid){
-            return;
-        }
-        Cart cart = new Cart();
-        cart = cart.findFirst("select * from shop_cart where user_id = ?",uid);
-        if(null == cart) {
-            return;
-        }
-        List<CartItem> items = CartItem.dao.find("select * from shop_cart_item where cart_id = ?",cart.getId());
-        CartDTO dto = new CartDTO();
-        dto.setCart(cart);
-        dto.setCartItems(items);
-        renderJson(dto);
     }
 
     public void welcome() {
