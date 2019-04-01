@@ -101,4 +101,12 @@ public class ApiController extends Controller {
         dto.setCartItems(items);
         renderJson(dto);
     }
+
+    /**
+     * 获取商品详情
+     */
+    public void goodsDetail(){
+        Long goodsId = getParaToLong("goods_id");
+        renderJson(goodsService.findOne(goodsId));
+    }
 }
