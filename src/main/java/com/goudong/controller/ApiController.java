@@ -26,6 +26,19 @@ public class ApiController extends Controller {
 
     private final static GoodsService goodsService = new GoodsService();
 
+    /**
+     * 注册
+     */
+    public void register(){
+        String username = getPara("username");
+        String password = getPara("password");
+        User user = new User();
+        user.setAccount(username);
+        user.setPassword(password);
+        user.save();
+        renderJson(user);
+    }
+
 
     /**
      * 登录
